@@ -5,8 +5,6 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
-
-
 function signin(){
     var login = $("#signin_login").val();
     var pass = $("#signin_password").val();
@@ -18,8 +16,10 @@ function signin(){
             password:pass
            },
         success: function(data){
-            alert(data[0].login);
-            //window.location.href="index.html";
+            //$('#block2').hide();
+            alert("Sign in with login: " + data[0].login);
+            window.location.href="calendar.html";
+            $("#login").html('Save');
         },
         error: function() {
             alert("Error");
@@ -49,6 +49,10 @@ function signup(){
     });
 }
 
+function signout(){
+    window.location.href="index.html"
+}
+
 $(document).ready(function() {
 	$('.btn').click(function(event) {
 		$('.block').removeClass('hidden')
@@ -59,3 +63,4 @@ $(document).ready(function() {
 
 $(document).on('click', '#signin', signin);
 $(document).on('click', '#signup', signup);
+$(document).on('click', '#signout', signout);
