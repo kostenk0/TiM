@@ -93,3 +93,8 @@ button:focus {
 
     display: none;
 }
+.clndr{
+    width: 100%;
+    text-align: center;
+    margin-right: 30%;
+  }
