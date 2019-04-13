@@ -5,6 +5,7 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
+
 function signin(){
     var login = $("#signin_login").val();
     var pass = $("#signin_password").val();
@@ -17,14 +18,18 @@ function signin(){
            },
         success: function(data){
             //$('#block2').hide();
+            sessionStorage.setItem(10, data[0].login);
             alert("Sign in with login: " + data[0].login);
             window.location.href="calendar.html";
-            $("#login").html('Save');
         },
         error: function() {
             alert("Error");
         }
     });
+}
+
+window.onload = function() {
+    document.getElementById("log").innerHTML= sessionStorage.getItem(10);
 }
 
 function signup(){
@@ -53,13 +58,13 @@ function signout(){
     window.location.href="index.html"
 }
 
-$(document).ready(function() {
-	$('.btn').click(function(event) {
-		$('.block').removeClass('hidden')
-		var num = $(this).attr('data-num');
-		$('#block'+num).addClass('hidden')
-	});
-});
+// $(document).ready(function() {
+// 	$('.btn').click(function(event) {
+// 		$('.block').removeClass('hidden');
+// 		var num = $(this).attr('data-num');
+// 		$('#block'+num).addClass('hidden');
+// 	});
+// });
 
 $(document).on('click', '#signin', signin);
 $(document).on('click', '#signup', signup);
