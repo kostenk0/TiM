@@ -121,8 +121,6 @@ $(document).on('click', '#signout', signout);
 $(document).on('click', '#add', add);
 $(document).on('click', '.day', function(){
     let day = $(this).html();
-    // let last = sessionStorage.getItem(20);
-     alert(sessionStorage.getItem(10));
     $.ajax({
         url: 'get.php',
         type: 'post',
@@ -130,7 +128,6 @@ $(document).on('click', '.day', function(){
             login:sessionStorage.getItem(10)
            },
         success: function(data){
-            console.log(data[0].days);
             $('#calendar').hide();
             var $all_grid = $('<div>');
             data.forEach(function (position){

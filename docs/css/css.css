@@ -1,9 +1,11 @@
 *{
     margin: 0;
     padding: 0;
+
 }
 body {
     height: 100%;
+
   }
 .input{
     width: 50%;
@@ -84,12 +86,60 @@ button:focus {
     width: 100%;
     height: 100px;
   }
-  .block.active {display: block;}
+.block.active {display: block;}
 .mainBody{
     width: 100%;
     height: 27.85em;
 }
 .hidden{
-
     display: none;
+}
+.main-picker{
+    display: flex;
+    justify-content: center;
+}
+.input_date1{
+    display: inline-block;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-right: 2%;
+}
+.input_date2{
+    display: inline-block;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.drpdwn{
+    display: flex;
+    justify-content: center;
+    margin-left:3%;
+}
+.checkboxes{
+    display: flex;
+    justify-content: center;
+}
+.box{
+    padding-top:1.5%;
+    margin-right:2%;
+}
+.tm{
+    display: flex;
+    justify-content: center;
+}
+.tm1{
+    display: inline-block;
+    margin-top: 1.5%;
+    margin-bottom: 3%;
+    padding-right: 2%;
+}
+.msg{
+    display: flex;
+    justify-content: center;
+}
+.btnn{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5%;
+    margin-bottom: 3%;
+    padding-right: 2%;
 }

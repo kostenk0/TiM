@@ -5,9 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TiM</title>
         <link rel="shortcut icon" href="../img/tim.jpg">
-        <link rel="stylesheet" href="css/css.css">
         <title>...</title>
-        <link rel="stylesheet" href="./css/css.css">
+        <link rel="stylesheet" href="css/css.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="./js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -46,86 +45,101 @@
                   </div>
                 </nav>
         </header>
-        <div id="calendar">
+    <div id="calendar">
         <section class="main-picker">
-    <div class="input_date1">
-    <input  id="input_start" width="100%" />
-    <script>
-        $('#input_start').datetimepicker({
-            uiLibrary: 'bootstrap4',
-            modal: true,
-            footer: true
-        });
-    </script>
-    </div>
-    <div class="input_date2">
-        <input id="input_end" width="100%" />
-        <script>
-            $('#input_end').datetimepicker({
+          <div class="input_date1">
+            <input  id="input_start" width="100%" placeholder="Дата початку"/>
+            <script>
+             $('#input_start').datetimepicker({
+              uiLibrary: 'bootstrap4',
+              modal: true,
+              footer: true
+              });
+            </script>
+           </div>
+           <div class="input_date2">
+             <input id="input_end" width="100%" placeholder="Дата завершення"/>
+              <script>
+                $('#input_end').datetimepicker({
                 uiLibrary: 'bootstrap4',
                 modal: true,
                 footer: true
-            });
-        </script>
+                });
+              </script>
+            </div>
+            </section>
+          <div class="drpdwn">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal" method="post">
+                 <div class="form-group form-group-sm">
+                  <div class="col-sm-11 ">
+                   <select class="select form-control" id="select" name="select">
+                    <option value="1">
+                     Перший пріоритет
+                    </option>
+                    <option value="2">
+                     Другий пріоритет
+                    </option>
+                    <option value="3">
+                     Третій пріроитет
+                    </option>
+                   </select>
+                  </div>
+                 </div>
+            </div>
+          </div>
+          <div class="checkboxes" id="days">
+            <div class="box">
+             <input type="checkbox" id="day1" name="day" value="Monday" checked>
+             <label for="scales">Понеділок</label>
+           </div>
+           <div class="box">
+            <input type="checkbox" id="day2" value="Tuesday" name="day" checked>
+            <label for="scales">Вівторок</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day3" name="day" value="Wednesday" checked>
+            <label for="scales">Середа</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day4" name="day" value="Thursday" checked>
+            <label for="scales">Четвер</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day5" name="day" value="Friday" checked>
+            <label for="scales">П'ятниця</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day6" name="day" value="Saturday" checked>
+            <label for="scales">Субота</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day7" name="day" value="Sunday"checked>
+            <label for="scales">Неділя</label>
+          </div>
+          </div>
+      <div class="tm">
+        <form>
+         <p class="tm1"><input type="time" name="cron" value="00:00" min="00:00" max="23:59" id="startTime"></p>
+         <p class="tm1"><input type="time" name="cron" value="00:00" min="00:00" max="23:59" id="endTime"></p>
+        </form>
+      </div>
+      <div class="msg">
+        <textarea name="message" id="message" cols="35" rows="5" placeholder="Введіть справу, яку хочете запланувати"></textarea>
+      </div>
+      
+      <div class="btnn">
+          <button class="btn btn-primary " id="add" name="submit" type="submit"> Додати </button>
+      </div>
     </div>
-</section>
-<div class="main">
-  <div class="dropdown">
-    <select class="select form-control" id="select" name="select">
-        <option value="1">
-         1
-        </option>
-        <option value="2">
-         2
-        </option>
-        <option value="3">
-         3
-        </option>
-       </select>
-  </div>
-</div>
-<div class="checkboxes" id="days">
 
-<input type="checkbox" id="day1" name="day" value="Monday"
-           checked>
-    <label for="scales">Monday</label>
-    <input type="checkbox" id="day2" value="Tuesday" name="day"
-           checked>
-    <label for="scales">Tuesday</label>
-    <input type="checkbox" id="day3" name="day" value="Wednesday"
-           checked>
-    <label for="scales">Wednesday</label>
-    <input type="checkbox" id="day4" name="day" value="Thursday"
-           checked>
-    <label for="scales">Thursday</label>
-    <input type="checkbox" id="day5" name="day" value="Friday"
-           checked>
-    <label for="scales">Friday</label>
-    <input type="checkbox" id="day6" name="day" value="Saturday"
-           checked>
-    <label for="scales">Saturday</label>
-    <input type="checkbox" id="day7" name="day" value="Sunday"
-           checked>
-    <label for="scales">Sunday</label>
-  
-  </div>
-
-<label class="main-picker" for="select">
-  Message
-  </label>
-<textarea name="message" id="message" cols="40" rows="10">
-</textarea>
-
-<form>
-    <p><input type="time" name="cron" value="00:00" min="00:01" max="24:00" id="startTime"></p>
-    <p><input type="time" name="cron" value="00:00" min="00:01" max="24:00" id="endTime"></p>
-    <p><input type="submit" id="add"></p>
-   </form>
-</div>
-
-<div id="Monday">
-
-</div>
+<div id="Monday"></div>
+<div id="Tuesday"></div>
+<div id="Wednesday"></div>
+<div id="Thursday"></div>
+<div id="Friday"></div>
+<div id="Saturday"></div>
+<div id="Sunday"></div>
 
 </body>
 </html>
