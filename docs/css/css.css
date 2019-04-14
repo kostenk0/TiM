@@ -107,3 +107,68 @@ button:focus {
 
 /* Propeller datetimepicker */
 @import "datetimepicker/css/pmd-datetimepicker.css";
+
+.navbar-background{
+    /* background: #FF9933; */
+background-color:#FF9933;
+background-repeat: no-repeat;
+
+}
+.input_date1{
+display:inline-block;
+padding:10px;
+
+}
+
+.input_date2{
+    display:inline-block;
+    padding: 10px;
+    
+    
+    }
+.main-picker{
+    display: flex;
+    align-items: center;
+    justify-content: center
+    
+}
+.checkboxes{
+    width: 70%;
+    /* display: flex;
+    justify-content: space-between */
+}
+.main{
+    display: flex;
+    justify-content: center;
+}
+.mainmenubtn {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding:20px;
+    margin-top:20px;
+}
+
+.mainmenubtn:hover {
+    background-color: red;
+    }
+    
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-child {
+    display: none;
+    background-color: black;
+    min-width: 200px;
+}
+.dropdown-child a {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-child {
+    display: block;
+}

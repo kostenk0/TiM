@@ -12,25 +12,17 @@
         <script src="./js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
-<<<<<<< HEAD
-        <link rel="stylesheet" href="./css/css.css">
-        <link rel="stylesheet" type="text/css" href="js/jquery.datetimepicker.css"/>
-<script src="js/jquery.js"></script>
-<script src="js/jquery.datetimepicker.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-=======
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
->>>>>>> ee1546f7de3ba62ab90d50cbb48cd6571666f0d2
 </head>
 <body>
         <header>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                  <a class="navbar-brand" href="#">TIM</a>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                  <a class="navbar-brand " href="#">TIM</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -48,25 +40,15 @@
                       <li><a class="nav-link " href="#contact">Sunday</a></li>
                     </ul>
                     <ul class="nav justify-content-end">
-<<<<<<< HEAD
-                        <li class="btn btn-outline-info mr-2 my-2 my-sm-0" data-num="1" id="login login_calendar"></li>
-=======
                         <li class="btn btn-outline-info mr-2 my-2 my-sm-0" data-num="1" id="log">login</li>
->>>>>>> ee1546f7de3ba62ab90d50cbb48cd6571666f0d2
                         <li class="btn btn-outline-info mr-2 my-2 my-sm-0" data-num="2" id="signout">Sign out</li>
                     </ul>
                   </div>
                 </nav>
         </header>
-<<<<<<< HEAD
-        <input type="text" id="datetimepicker"/>
-<script>
-$('#datetimepicker').datetimepicker();
-</script>
-        
-=======
-
-    <input id="input_start" width="500" />
+        <section class="main-picker">
+    <div class="input_date1">
+    <input  id="input_start" width="100%" />
     <script>
         $('#input_start').datetimepicker({
             uiLibrary: 'bootstrap4',
@@ -74,7 +56,9 @@ $('#datetimepicker').datetimepicker();
             footer: true
         });
     </script>
-        <input id="input_end" width="500" />
+    </div>
+    <div class="input_date2">
+        <input id="input_end" width="100%" />
         <script>
             $('#input_end').datetimepicker({
                 uiLibrary: 'bootstrap4',
@@ -82,17 +66,69 @@ $('#datetimepicker').datetimepicker();
                 footer: true
             });
         </script>
+    </div>
+</section>
+<!-- <label class="main-picker" for="select">
+  Select a Priority
+  </label> -->
+<div class="main">
+  <div class="dropdown">
+    <button class="mainmenubtn">Select a Priority</button>
+    <div class="dropdown-child">
+      <a href="#">First Priority</a>
+      <a href="#">Second Priority</a>
+      <a href="#">Third Priority</a>
+    </div>
+  </div>
+</div>
+<div class="checkboxes">
+    <input type="checkbox" id="day1" name="scales"
+           checked>
+    <label for="scales">Monday</label>
+    <input type="checkbox" id="day2" name="scales"
+           checked>
+    <label for="scales">Tuesday</label>
+    <input type="checkbox" id="day3" name="scales"
+           checked>
+    <label for="scales">Wednesday</label>
+    <input type="checkbox" id="day4" name="scales"
+           checked>
+    <label for="scales">Thursday</label>
+    <input type="checkbox" id="day5" name="scales"
+           checked>
+    <label for="scales">Friday</label>
+    <input type="checkbox" id="day6" name="scales"
+           checked>
+    <label for="scales">Saturday</label>
+    <input type="checkbox" id="day7" name="scales"
+           checked>
+    <label for="scales">Sunday</label>
+  
+  </div>
+
+<label class="main-picker" for="select">
+  Message
+  </label>
+<textarea name="message" id="message" cols="40" rows="10">
+</textarea>
+
+<form>
+    <p>В какое время запускать Cron?</p>
+    <p><input type="time" name="cron" value="00:00" min="00:01" max="24:00"></p>
+    <p><input type="time" name="cron" value="00:00" min="00:01" max="24:00"></p>
+    <p><input type="submit"></p>
+   </form>
+
+
+
 
     <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-<div class="bootstrap-iso">
+<!-- <div class="bootstrap-iso">
     <div class="container-fluid">
      <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-12">
+       <div class="col-md-6 col-sm-6 col-xs-12">
        <form class="form-horizontal" method="post">
-        <div class="form-group form-group-sm">
-         <label class="control-label col-sm-2" for="select">
-          Select a Priority
-         </label>
+         <div class="form-group form-group-sm"> 
          <div class="col-sm-10">
           <select class="select form-control" id="select" name="select">
            <option value="First Priority">
@@ -122,13 +158,12 @@ $('#datetimepicker').datetimepicker();
           ADD
           </button>
          </div>
-        </div>
+         </div> 
        </form>
       </div>
-     </div>
+      </div> 
     </div>
-   </div>
+   </div> -->
 
->>>>>>> ee1546f7de3ba62ab90d50cbb48cd6571666f0d2
 </body>
 </html>

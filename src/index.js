@@ -1,7 +1,6 @@
 import './scss/main.scss';
 import $ from 'jquery';
 
-console.log('Hello!');
 
 window.jQuery = $;
 window.$ = $;
@@ -22,17 +21,6 @@ function signin(){
             sessionStorage.setItem(10, data[0].login);
             alert("Sign in with login: " + data[0].login);
             window.location.href="calendar.html";
-<<<<<<< HEAD
-            console.log(data[0].login);
-                   
-
-            $(document).ready(function(data){
-                var $logCal = $('<span class="login_calendar_text">');
-                $logCal.appendTo('.login_calendar').text(data[0].login);
-                console.log(data[0].login);
-            });
-=======
->>>>>>> ee1546f7de3ba62ab90d50cbb48cd6571666f0d2
         },
         error: function() {
             alert("Error");
@@ -49,7 +37,6 @@ function signup(){
     var pass = $("#signup_password").val();
     var email = $("#signup_email").val();
     $.ajax({
-        // dataType: 'json',
         url: 'signup.php',
         type: 'post',
         data:{
@@ -58,13 +45,11 @@ function signup(){
             email:email
            },
         success: function(data){
-            console.log(login);
             alert(data);
-            // window.location.href="index.html";
-            console.log(login);
+            //window.location.href="index.html";
         },
-        error: function(data) {
-            alert(data);
+        error: function() {
+            alert("Error!!!!");
         }
     });
 }
@@ -75,17 +60,9 @@ function signout(){
 
 // $(document).ready(function() {
 // 	$('.btn').click(function(event) {
-<<<<<<< HEAD
-//         console.log("elfxf");
-// 		$('.block').removeClass('hidden')
-// 		var num = $(this).attr('data-num');
-//         $('#block'+num).addClass('hidden')
-//         console.log("elfxf");
-=======
 // 		$('.block').removeClass('hidden');
 // 		var num = $(this).attr('data-num');
 // 		$('#block'+num).addClass('hidden');
->>>>>>> ee1546f7de3ba62ab90d50cbb48cd6571666f0d2
 // 	});
 // });
 
@@ -101,3 +78,16 @@ function getData(){
     var task = $getElementById("message1").value;;
     alert(task);
 }
+
+$('#input_start').datetimepicker({
+    uiLibrary: 'bootstrap4',
+    modal: true,
+    footer: true
+});
+
+
+$('#input_end').datetimepicker({
+    uiLibrary: 'bootstrap4',
+    modal: true,
+    footer: true
+});
