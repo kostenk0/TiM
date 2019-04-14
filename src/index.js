@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 window.jQuery = $;
 window.$ = $;
-var login;
+
 
 function signin(){
     var login = $("#signin_login").val();
@@ -18,16 +18,18 @@ function signin(){
            },
         success: function(data){
             //$('#block2').hide();
+            sessionStorage.setItem(10, data[0].login);
             alert("Sign in with login: " + data[0].login);
-            login = data[0].login;
             window.location.href="calendar.html";
-            console.log(document.getElementById("login").val());
-            window.getElementById("login").innerHTML = login;
         },
         error: function() {
             alert("Error");
         }
     });
+}
+
+window.onload = function() {
+    document.getElementById("log").innerHTML= sessionStorage.getItem(10);
 }
 
 function signup(){
@@ -56,17 +58,23 @@ function signout(){
     window.location.href="index.html"
 }
 
-$(document).ready(function() {
-  $('.btn').click(function(event) {
-    $('.block').removeClass('hidden')
-    var num = $(this).attr('data-num');
-    $('#block'+num).addClass('hidden')
-  });
-});
+// $(document).ready(function() {
+// 	$('.btn').click(function(event) {
+// 		$('.block').removeClass('hidden');
+// 		var num = $(this).attr('data-num');
+// 		$('#block'+num).addClass('hidden');
+// 	});
+// });
 
 $(document).on('click', '#signin', signin);
 $(document).on('click', '#signup', signup);
 $(document).on('click', '#signout', signout);
+$(document).on('click', '#add', getData);
 
-
-         
+function getData(){
+    // var start = $( "#input_start" ).datepicker( "getDate" );
+    // var end = $("input_end").val();
+    // var priority = $("select").val();
+    var task = $getElementById("message1").value;;
+    alert(task);
+}
