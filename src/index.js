@@ -19,8 +19,10 @@ function signin(){
            },
         success: function(data){
             //$('#block2').hide();
+            sessionStorage.setItem(10, data[0].login);
             alert("Sign in with login: " + data[0].login);
             window.location.href="calendar.html";
+<<<<<<< HEAD
             console.log(data[0].login);
                    
 
@@ -29,11 +31,17 @@ function signin(){
                 $logCal.appendTo('.login_calendar').text(data[0].login);
                 console.log(data[0].login);
             });
+=======
+>>>>>>> ee1546f7de3ba62ab90d50cbb48cd6571666f0d2
         },
         error: function() {
             alert("Error");
         }
     });
+}
+
+window.onload = function() {
+    document.getElementById("log").innerHTML= sessionStorage.getItem(10);
 }
 
 function signup(){
@@ -67,14 +75,29 @@ function signout(){
 
 // $(document).ready(function() {
 // 	$('.btn').click(function(event) {
+<<<<<<< HEAD
 //         console.log("elfxf");
 // 		$('.block').removeClass('hidden')
 // 		var num = $(this).attr('data-num');
 //         $('#block'+num).addClass('hidden')
 //         console.log("elfxf");
+=======
+// 		$('.block').removeClass('hidden');
+// 		var num = $(this).attr('data-num');
+// 		$('#block'+num).addClass('hidden');
+>>>>>>> ee1546f7de3ba62ab90d50cbb48cd6571666f0d2
 // 	});
 // });
 
 $(document).on('click', '#signin', signin);
 $(document).on('click', '#signup', signup);
 $(document).on('click', '#signout', signout);
+$(document).on('click', '#add', getData);
+
+function getData(){
+    // var start = $( "#input_start" ).datepicker( "getDate" );
+    // var end = $("input_end").val();
+    // var priority = $("select").val();
+    var task = $getElementById("message1").value;;
+    alert(task);
+}
