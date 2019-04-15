@@ -115,12 +115,30 @@ $(document).ready(function() {
 	});
 });
 
+function clear(){
+    $('#Monday').empty();
+    $('#Tuesday').empty();
+    $('#Wednesday').empty();
+    $('#Thursday').empty();
+    $('#Friday').empty();
+    $('#Saturday').empty();
+    $('#Sunday').empty();
+}
+
 $(document).on('click', '#signin', signin);
 $(document).on('click', '#signup', signup);
 $(document).on('click', '#signout', signout);
 $(document).on('click', '#add', add);
+$(document).on('click', '#calendar_header', function(){
+    clear();
+    $('#calendar').show();
+})
 $(document).on('click', '.day', function(){
+    clear();
     let day = $(this).html();
+    var temp = sessionStorage.getItem(20);
+    let currentDate = new Date();
+    currentDate.setFullYear(temp[0],(temp[1] - 1 ),temp[2]);
     $.ajax({
         url: 'get.php',
         type: 'post',
@@ -129,15 +147,60 @@ $(document).on('click', '.day', function(){
            },
         success: function(data){
             $('#calendar').hide();
-            var $all_grid = $('<div>');
+            let firstPriority = [];
+            let secondPriority = [];
+            let thirdPriority = [];
             data.forEach(function (position){
+                switch(position.priority){
+                    case "1":
+                    firstPriority.push(position);
+                    break;
+                    case "2":
+                    secondPriority.push(position);
+                    break;
+                    case "3":
+                    thirdPriority.push(position);
+                    break;
+                }
+            });
+            firstPriority.forEach(function(el) {
+                var date = new Date();
+                date.setFullYear(el.end[0],(el.end[1] - 1 ),el.end[2]);
+                alert("first");
+                if(el.days.contains(day)){
+                var $all_grid = $('<div>');
                 $all_grid.append($('<span Date of start: >'+(position.starttime)+'</span>'));
                 $all_grid.append($('<span Date of end: >'+(position.endtime)+'</span>'));
                 $all_grid.append($('<div class="">').text(position.text));
                 $all_grid.append($('<div class="">').text(position.priority));
                 $all_grid.append($('<div class="">').text(position.isdone));
+                $all_grid.appendTo('#' + day);
+                }
             });
-            $all_grid.appendTo('#' + day);
+            secondPriority.forEach(function(el) {
+                alert("second");
+                if(el.days.contains(day)){
+                var $all_grid = $('<div>');
+                $all_grid.append($('<span Date of start: >'+(position.starttime)+'</span>'));
+                $all_grid.append($('<span Date of end: >'+(position.endtime)+'</span>'));
+                $all_grid.append($('<div class="">').text(position.text));
+                $all_grid.append($('<div class="">').text(position.priority));
+                $all_grid.append($('<div class="">').text(position.isdone));
+                $all_grid.appendTo('#' + day);
+                }
+            });
+            thirdPriority.forEach(function(el) {
+                alert("third");
+                if(el.days.contains(day)){
+                var $all_grid = $('<div>');
+                $all_grid.append($('<span Date of start: >'+(position.starttime)+'</span>'));
+                $all_grid.append($('<span Date of end: >'+(position.endtime)+'</span>'));
+                $all_grid.append($('<div class="">').text(position.text));
+                $all_grid.append($('<div class="">').text(position.priority));
+                $all_grid.append($('<div class="">').text(position.isdone));
+                $all_grid.appendTo('#' + day);
+                }
+            });
         },
         error: function() {
             alert("Error");
