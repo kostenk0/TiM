@@ -128,30 +128,6 @@ function clear(){
 $(document).on('click', '#signin', signin);
 $(document).on('click', '#signup', signup);
 $(document).on('click', '#signout', signout);
-<<<<<<< HEAD
-$(document).on('click', '#add', getData);
-
-function getData(){
-    // var start = $( "#input_start" ).datepicker( "getDate" );
-    // var end = $("input_end").val();
-    // var priority = $("select").val();
-    var task = $getElementById("message1").value;;
-    alert(task);
-}
-
-$('#input_start').datetimepicker({
-    uiLibrary: 'bootstrap4',
-    modal: true,
-    footer: true
-});
-
-
-$('#input_end').datetimepicker({
-    uiLibrary: 'bootstrap4',
-    modal: true,
-    footer: true
-});
-=======
 $(document).on('click', '#add', add);
 $(document).on('click', '#calendar_header', function(){
     clear();
@@ -231,4 +207,3 @@ $(document).on('click', '.day', function(){
         }
     });
 });
->>>>>>> a295f334c5cfe107ffbac490757aee7069c429ad
