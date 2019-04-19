@@ -28,7 +28,6 @@ function signin(){
 
 window.onload = function() {
     document.getElementById("log").innerHTML= sessionStorage.getItem(10);
-    calcCurrentMonday();
 }
 
 function signup(){
@@ -64,11 +63,32 @@ function add(){
     var text = $("#message").val();
     var starttime = $("#startTime").val();
     var endtime = $("#endTime").val();
+    if(priority == "1")
+    {
+        if((start == "") || (end == "") || (starttime == "00:00") || (endtime == "00:00") || starttime == endtime || text == "")
+        {
+            alert("Something is not correct!");
+            return;
+        }
+    }
+    if(priority == "2")
+    {
+        if((start == "") || (end == "") || text == ""){
+            alert("Something is not correct!");
+            return;
+        }
+    }
+    if(priority == "3")
+    {
+        if(text == ""){
+            alert("Something is not correct!");
+            return; 
+        }
+    }
     var allVals = [];
      $('#days :checked').each(function() {
        allVals.push($(this).val());
      });
-    console.log(allVals);
     $.ajax({
         url: 'add.php',
         type: 'post',
@@ -90,19 +110,6 @@ function add(){
             alert("Error");
         }
     });
-}
-
-function calcCurrentMonday(){
-    var d = new Date();
-
-    var month = d.getMonth()+1;
-    var day = d.getDate();
-
-    var output = d.getFullYear() + '/' +
-        (month<10 ? '0' : '') + month + '/' +
-        (day<10 ? '0' : '') + day;
-    
-    sessionStorage.setItem(20, output);
 }
 
 $(document).ready(function() {
@@ -134,9 +141,21 @@ $(document).on('click', '#calendar_header', function(){
 $(document).on('click', '.day', function(){
     clear();
     let day = $(this).html();
-    var temp = sessionStorage.getItem(20);
-    let currentDate = new Date();
-    currentDate.setFullYear(temp[0],(temp[1] - 1 ),temp[2]);
+    const getWeekDates = () => {
+
+        var currentDate = moment();
+
+  var weekStart = currentDate.clone().startOf('isoWeek');
+  var weekEnd = currentDate.clone().endOf('isoWeek');
+
+  var days = [];
+
+  for (var i = 0; i <= 6; i++) {
+    days.push(moment(weekStart).add(i, 'days'));
+  }
+      
+        return days;
+      };
     $.ajax({
         url: 'get.php',
         type: 'post',
@@ -161,43 +180,63 @@ $(document).on('click', '.day', function(){
                     break;
                 }
             });
-            alert("сука");
+            let week = getWeekDates();
+            let selectedDate;
+            switch (day){
+                case "Monday":
+                selectedDate = week[0];
+                break;
+                case "Tuesday":
+                selectedDate = week[1];
+                break;
+                case "Wednesday":
+                selectedDate = week[2];
+                break;
+                case "Thursday":
+                selectedDate = week[3];
+                break;
+                case "Friday":
+                selectedDate = week[4];
+                break;
+                case "Saturday":
+                selectedDate = week[5];
+                break;
+                case "Sunday":
+                selectedDate = week[6];
+                break;
+
+            }
             firstPriority.forEach(function(el) {
-                // var date = new Date();
-                // date.setFullYear(el.end[0],(el.end[1] - 1 ),el.end[2]);
-                
-                if(el.days.contains(day)){
-                    alert("first");
+                let elementEndDate = moment(el.end);
+                if(el.days.includes(day) && selectedDate.isBefore(elementEndDate)){
                 var $all_grid = $('<div>');
-                $all_grid.append($('<span Date of start: >'+(position.starttime)+'</span>'));
-                $all_grid.append($('<span Date of end: >'+(position.endtime)+'</span>'));
-                $all_grid.append($('<div class="">').text(position.text));
-                $all_grid.append($('<div class="">').text(position.priority));
-                $all_grid.append($('<div class="">').text(position.isdone));
+                $all_grid.append($('<span Date of start: >'+(el.starttime)+'</span>'));
+                $all_grid.append($('<span Date of end: >'+(el.endtime)+'</span>'));
+                $all_grid.append($('<div class="">').text(el.text));
+                $all_grid.append($('<div class="">').text(el.priority));
+                $all_grid.append($('<div class="">').text(el.isdone));
                 $all_grid.appendTo('#' + day);
                 }
             });
             secondPriority.forEach(function(el) {
-                alert("second");
-                if(el.days.contains(day)){
+                if(el.days.includes(day) && selectedDate.isBefore(elementEndDate)){
                 var $all_grid = $('<div>');
-                $all_grid.append($('<span Date of start: >'+(position.starttime)+'</span>'));
-                $all_grid.append($('<span Date of end: >'+(position.endtime)+'</span>'));
-                $all_grid.append($('<div class="">').text(position.text));
-                $all_grid.append($('<div class="">').text(position.priority));
-                $all_grid.append($('<div class="">').text(position.isdone));
+                $all_grid.append($('<span Date of start: >'+(el.starttime)+'</span>'));
+                $all_grid.append($('<span Date of end: >'+(el.endtime)+'</span>'));
+                $all_grid.append($('<div class="">').text(el.text));
+                $all_grid.append($('<div class="">').text(el.priority));
+                $all_grid.append($('<div class="">').text(el.isdone));
                 $all_grid.appendTo('#' + day);
                 }
             });
             thirdPriority.forEach(function(el) {
-                alert("third");
-                if(el.days.contains(day)){
+                if(el.days.includes(day) && selectedDate.isBefore(elementEndDate)){
                 var $all_grid = $('<div>');
-                $all_grid.append($('<span Date of start: >'+(position.starttime)+'</span>'));
-                $all_grid.append($('<span Date of end: >'+(position.endtime)+'</span>'));
-                $all_grid.append($('<div class="">').text(position.text));
-                $all_grid.append($('<div class="">').text(position.priority));
-                $all_grid.append($('<div class="">').text(position.isdone));
+                $all_grid.append($('<span Date of start: >'+(el.starttime)+'</span>'));
+                $all_grid.append($('<span Date of end: >'+(el.endtime)+'</span>'));
+                $all_grid.append($('<div class="">').text(el.text));
+                $all_grid.append($('<div class="">').text(el.priority));
+                $all_grid.append($('<div class="">').text(el.isdone));
                 $all_grid.appendTo('#' + day);
                 }
             });

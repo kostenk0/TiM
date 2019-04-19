@@ -16,7 +16,7 @@
         }
         $sql = "SET NAMES utf8";
         mysqli_query($conn, $sql);
-        $sql = "SELECT login, starttime, endtime, text, priority, days, isdone FROM task WHERE login = '$login'";
+        $sql = "SELECT login, starttime, endtime, text, priority, days, isdone, end FROM task WHERE login = '$login'";
         $result = mysqli_query($conn, $sql);
         if (!$result) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -31,7 +31,8 @@
                 'text' => $row['text'],
                 'priority' => $row['priority'],
                 'isdone'=> $row['isdone'],
-                'days' => unserialize($row['days'])
+                'days' => unserialize($row['days']),
+                'end' => $row['end']
             ];
         }
         header('Content-type: application/json');
