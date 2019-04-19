@@ -1,10 +1,8 @@
 import './scss/main.scss';
 import $ from 'jquery';
 
-
 window.jQuery = $;
 window.$ = $;
-
 
 function signin(){
     var login = $("#signin_login").val();
@@ -163,11 +161,13 @@ $(document).on('click', '.day', function(){
                     break;
                 }
             });
+            alert("сука");
             firstPriority.forEach(function(el) {
-                var date = new Date();
-                date.setFullYear(el.end[0],(el.end[1] - 1 ),el.end[2]);
-                alert("first");
+                // var date = new Date();
+                // date.setFullYear(el.end[0],(el.end[1] - 1 ),el.end[2]);
+                
                 if(el.days.contains(day)){
+                    alert("first");
                 var $all_grid = $('<div>');
                 $all_grid.append($('<span Date of start: >'+(position.starttime)+'</span>'));
                 $all_grid.append($('<span Date of end: >'+(position.endtime)+'</span>'));
