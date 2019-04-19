@@ -209,34 +209,45 @@ $(document).on('click', '.day', function(){
             firstPriority.forEach(function(el) {
                 let elementEndDate = moment(el.end);
                 if(el.days.includes(day) && selectedDate.isBefore(elementEndDate)){
-                var $all_grid = $('<div>');
-                $all_grid.append($('<span Date of start: >'+(el.starttime)+'</span>'));
-                $all_grid.append($('<span Date of end: >'+(el.endtime)+'</span>'));
-                $all_grid.append($('<div class="">').text(el.text));
-                $all_grid.append($('<div class="">').text(el.priority));
-                $all_grid.append($('<div class="">').text(el.isdone));
+                var $all_grid = $('<div class="row row-striped firstPriority">');
+                $all_grid.append($('<div class="col-2 text-right"><h1 class="display-4"><span class="badge badge-secondary">'
+                + selectedDate.date() +'</span></h1><h2>'
+                + selectedDate.format('MMMM') + '</h2></div><div class="col-10"><h3 class="text-uppercase"><strong>Priority: '
+                + el.priority + '</strong></h3><ul class="list-inline"><li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>'
+                + day + '</li><li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> '
+                + el.starttime + ' - '
+                + el.endtime + '</li></ul><p>'
+                + el.text + '</p></div></div>'));
                 $all_grid.appendTo('#' + day);
-                }
+            }
             });
             secondPriority.forEach(function(el) {
+                let elementEndDate = moment(el.end);
                 if(el.days.includes(day) && selectedDate.isBefore(elementEndDate)){
-                var $all_grid = $('<div>');
-                $all_grid.append($('<span Date of start: >'+(el.starttime)+'</span>'));
-                $all_grid.append($('<span Date of end: >'+(el.endtime)+'</span>'));
-                $all_grid.append($('<div class="">').text(el.text));
-                $all_grid.append($('<div class="">').text(el.priority));
-                $all_grid.append($('<div class="">').text(el.isdone));
+                var $all_grid = $('<div class="row row-striped secondPriority">');
+                $all_grid.append($('<div class="col-2 text-right"><h1 class="display-4"><span class="badge badge-secondary">'
+                + selectedDate.date() +'</span></h1><h2>'
+                + selectedDate.format('MMMM') + '</h2></div><div class="col-10"><h3 class="text-uppercase"><strong>Priority: '
+                + el.priority + '</strong></h3><ul class="list-inline"><li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>'
+                + day + '</li><li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> '
+                + "-:-" + ' - '
+                + "-:-" + '</li></ul><p>'
+                + el.text + '</p></div></div>'));
                 $all_grid.appendTo('#' + day);
                 }
             });
             thirdPriority.forEach(function(el) {
-                if(el.days.includes(day) && selectedDate.isBefore(elementEndDate)){
-                var $all_grid = $('<div>');
-                $all_grid.append($('<span Date of start: >'+(el.starttime)+'</span>'));
-                $all_grid.append($('<span Date of end: >'+(el.endtime)+'</span>'));
-                $all_grid.append($('<div class="">').text(el.text));
-                $all_grid.append($('<div class="">').text(el.priority));
-                $all_grid.append($('<div class="">').text(el.isdone));
+                let elementEndDate = moment(el.end);
+                if(el.days.includes(day)){
+                var $all_grid = $('<div class="row row-striped thirdPriority">');
+                $all_grid.append($('<div class="col-2 text-right"><h1 class="display-4"><span class="badge badge-secondary">'
+                + selectedDate.date() +'</span></h1><h2>'
+                + selectedDate.format('MMMM') + '</h2></div><div class="col-10"><h3 class="text-uppercase"><strong>Priority: '
+                + el.priority + '</strong></h3><ul class="list-inline"><li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>'
+                + day + '</li><li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> '
+                + "-:-" + ' - '
+                + "-:-" + '</li></ul><p>'
+                + el.text + '</p></div></div>'));
                 $all_grid.appendTo('#' + day);
                 }
             });
