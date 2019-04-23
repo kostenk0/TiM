@@ -8,9 +8,10 @@
         <title>...</title>
         <link rel="stylesheet" href="css/css.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script src="./js/main.js"></script>
+        <script src="js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -45,7 +46,8 @@
                   </div>
                 </nav>
         </header>
-    <div id="calendar">
+<div class="p-3 mb-2 bg-warning text-dark" id="calendar">
+    <div>
         <section class="main-picker">
           <div class="input_date1">
             <input  id="input_start" width="100%" placeholder="Дата початку"/>
@@ -132,14 +134,16 @@
           <button class="btn btn-primary " id="add" name="submit" type="submit"> Додати </button>
       </div>
     </div>
+  </div>
+</div>
 
-<div id="Monday"></div>
-<div id="Tuesday"></div>
-<div id="Wednesday"></div>
-<div id="Thursday"></div>
-<div id="Friday"></div>
-<div id="Saturday"></div>
-<div id="Sunday"></div>
+<div class="container" id="Monday"></div>
+<div class="container" id="Tuesday"></div>
+<div class="container" id="Wednesday"></div>
+<div class="container" id="Thursday"></div>
+<div class="container" id="Friday"></div>
+<div class="container" id="Saturday"></div>
+<div class="container" id="Sunday"></div>
 
 <div class="container">
   <div class="row row-striped">
@@ -172,5 +176,18 @@
   </div>
 </div>
 
+
+
+
+
+<div id="calendar" class="fc-calendar-container"></div>
+
 </body>
+<footer class="navbar-default navbar-fixed-bottom navbar-dark bg-dark ">
+  <div class="container-fluid">
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://www.instagram.com/sebek_01k/"> Sebek group</a>
+    </div>
+  </div>
+</footer>
 </html>

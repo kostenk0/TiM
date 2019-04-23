@@ -143,14 +143,11 @@ button:focus {
 margin-bottom: 3%;
     padding-right: 2%;
 }
-
 .row-striped:nth-of-type(odd){
-    background-color: #efefef;
-    border-left: 4px #000000 solid;
+    border-left: 4px #efefef solid;
   }
   
   .row-striped:nth-of-type(even){
-    background-color: #ffffff;
     border-left: 4px #efefef solid;
   }
   
@@ -158,5 +155,14 @@ margin-bottom: 3%;
       padding: 15px 0;
   }
 
+  .secondPriority {
+      background-color: gold;
+  }
 
+  .firstPriority {
+    background-color: #D32222;
+  }
 
+  .thirdPriority {
+      background-color: #009B00;
+  }
