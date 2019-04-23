@@ -135,6 +135,7 @@ $(document).on('click', '#calendar_header', function(){
 })
 $(document).on('click', '.day', function(){
     clear();
+    console.log('hi');
     let day = $(this).html();
     var temp = sessionStorage.getItem(20);
     let currentDate = new Date();

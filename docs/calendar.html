@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TiM</title>
+        <link rel="shortcut icon" href="../img/tim.jpg">
+        <title>...</title>
+        <link rel="stylesheet" href="css/css.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="./js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+        <header>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                  <a class="navbar-brand " href="#">TIM</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarsExample05">
+                    <ul class="navbar-nav mr-auto" id="bar">
+                      <li>
+                        <a class="nav-link " href="#" id="calendar_header">Calendar</a>
+                      </li>
+                      <li><a class="nav-link day" href="#">Monday</a></li>
+                      <li><a class="nav-link day" href="#">Tuesday</a></li>
+                      <li><a class="nav-link day" href="#">Wednesday</a></li>
+                      <li><a class="nav-link day" href="#">Thursday</a></li>
+                      <li><a class="nav-link day" href="#">Friday</a></li>
+                      <li><a class="nav-link day" href="#">Saturday</a></li>
+                      <li><a class="nav-link day" href="#">Sunday</a></li>
+                    </ul>
+                    <ul class="nav justify-content-end">
+                        <li class="btn btn-outline-info mr-2 my-2 my-sm-0" data-num="1" id="log">login</li>
+                        <li class="btn btn-outline-info mr-2 my-2 my-sm-0" data-num="2" id="signout">Sign out</li>
+                    </ul>
+                  </div>
+                </nav>
+        </header>
+    <div id="calendar">
+        <section class="main-picker">
+          <div class="input_date1">
+            <input  id="input_start" width="100%" placeholder="Дата початку"/>
+            <script>
+             $('#input_start').datetimepicker({
+              uiLibrary: 'bootstrap4',
+              modal: true,
+              footer: true
+              });
+            </script>
+           </div>
+           <div class="input_date2">
+             <input id="input_end" width="100%" placeholder="Дата завершення"/>
+              <script>
+                $('#input_end').datetimepicker({
+                uiLibrary: 'bootstrap4',
+                modal: true,
+                footer: true
+                });
+              </script>
+            </div>
+            </section>
+          <div class="drpdwn">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal" method="post">
+                 <div class="form-group form-group-sm">
+                  <div class="col-sm-11 ">
+                   <select class="select form-control" id="select" name="select">
+                    <option value="1">
+                     Перший пріоритет
+                    </option>
+                    <option value="2">
+                     Другий пріоритет
+                    </option>
+                    <option value="3">
+                     Третій пріроитет
+                    </option>
+                   </select>
+                  </div>
+                 </div>
+            </div>
+          </div>
+          <div class="checkboxes" id="days">
+            <div class="box">
+             <input type="checkbox" id="day1" name="day" value="Monday" checked>
+             <label for="scales">Понеділок</label>
+           </div>
+           <div class="box">
+            <input type="checkbox" id="day2" value="Tuesday" name="day" checked>
+            <label for="scales">Вівторок</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day3" name="day" value="Wednesday" checked>
+            <label for="scales">Середа</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day4" name="day" value="Thursday" checked>
+            <label for="scales">Четвер</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day5" name="day" value="Friday" checked>
+            <label for="scales">П'ятниця</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day6" name="day" value="Saturday" checked>
+            <label for="scales">Субота</label>
+          </div>
+          <div class="box">
+            <input type="checkbox" id="day7" name="day" value="Sunday"checked>
+            <label for="scales">Неділя</label>
+          </div>
+          </div>
+      <div class="tm">
+        <form>
+         <p class="tm1"><input type="time" name="cron" value="00:00" min="00:00" max="23:59" id="startTime"></p>
+         <p class="tm1"><input type="time" name="cron" value="00:00" min="00:00" max="23:59" id="endTime"></p>
+        </form>
+      </div>
+      <div class="msg">
+        <textarea name="message" id="message" cols="35" rows="5" placeholder="Введіть справу, яку хочете запланувати"></textarea>
+      </div>
+      
+      <div class="btnn">
+          <button class="btn btn-primary " id="add" name="submit" type="submit"> Додати </button>
+      </div>
+    </div>
+
+<div id="Monday"></div>
+<div id="Tuesday"></div>
+<div id="Wednesday"></div>
+<div id="Thursday"></div>
+<div id="Friday"></div>
+<div id="Saturday"></div>
+<div id="Sunday"></div>
+
+<div class="container">
+  <div class="row row-striped">
+    <div class="col-2 text-right">
+      <h1 class="display-4"><span class="badge badge-secondary">23</span></h1>
+      <h2>OCT</h2>
+    </div>
+    <div class="col-10">
+      <h3 class="text-uppercase"><strong>Ice Cream Social</strong></h3>
+      <ul class="list-inline">
+          <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
+        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
+      </ul>
+      <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+  <div class="row row-striped">
+    <div class="col-2 text-right">
+      <h1 class="display-4"><span class="badge badge-secondary">27</span></h1>
+      <h2>OCT</h2>
+    </div>
+    <div class="col-10">
+      <h3 class="text-uppercase"><strong>Operations Meeting</strong></h3>
+      <ul class="list-inline">
+          <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Friday</li>
+        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 2:30 PM - 4:00 PM</li>
+      </ul>
+      <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
